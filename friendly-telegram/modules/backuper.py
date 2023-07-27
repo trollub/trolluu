@@ -1,10 +1,3 @@
-"""
-    █ █ ▀ █▄▀ ▄▀█ █▀█ ▀    ▄▀█ ▀█▀ ▄▀█ █▀▄▀█ ▄▀█
-    █▀█ █ █ █ █▀█ █▀▄ █ ▄  █▀█  █  █▀█ █ ▀ █ █▀█
-
-    Copyright 2022 t.me/hikariatama
-    Licensed under the GNU GPLv3
-"""
 
 from .. import loader, utils
 import asyncio
@@ -60,30 +53,7 @@ class BackuperMod(loader.Module):
         await utils.answer(message, self.strings("db_restored", message))
         await self.allmodules.commands["restart"](await message.respond("_"))
 
-    async def backupmodscmd(self, message: Message) -> None:
-        """Create backup of mods"""
-        data = json.dumps(
-            {
-                "loaded": self._db.get(
-                    "friendly-telegram.modules.loader", "loaded_modules", []
-                ),
-                "unloaded": [],
-            }
-        )
-        txt = io.BytesIO(data.encode("utf-8"))
-        txt.name = f"ftg-mods-{datetime.now().strftime('%d-%m-%Y-%H-%M')}.mods"
-        await self._client.send_file(
-            utils.get_chat_id(message),
-            txt,
-            caption=self.strings("modules_backup", message).format(
-                len(
-                    self._db.get(
-                        "friendly-telegram.modules.loader", "loaded_modules", []
-                    )
-                )
-            ),
-        )
-        await message.delete()
+ 
 
     async def restoremodscmd(self, message: Message) -> None:
         """<reply to file> - Restore mods from backup"""
