@@ -17,7 +17,7 @@ class TrollInfoMod(loader.Module):
 
     strings = {
         "name": "TrollInfo",
-        "_custom_msg_doc": "Custom message must have {owner}, {version}, {build}, {upd}, {platform} keywords",
+        "_custom_msg_doc": "Custom message must have {owner}, {version}, {build}, {upd} keywords",
         "_custom_button_doc": "Custom buttons.",
         "_photo_url_doc": "You can set your own photo to geek info.",
         "default_message": (
@@ -26,7 +26,7 @@ class TrollInfoMod(loader.Module):
             "<b>☠️ Version:</b> <i>{version}</i>\n"
             "<b>☠️ Build:</b> {build}\n"
             "<b>{upd}</b>\n\n"
-            "<b>{platform}</b>"
+            "<b>☠️ TrollHost</b>"
         ),
     }
 
