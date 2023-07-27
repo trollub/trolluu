@@ -42,7 +42,7 @@ def get_platform_name():
     if is_termux:
         return "📱 Termux"
 
-    return "📻 VDS"
+    return "☠️ TrollHost"
 
 
 def get_args(message):
